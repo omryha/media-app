@@ -1,0 +1,31 @@
+<div
+  class="position-sticky p-5 d-flex flex-column justify-content-center align-items-center"
+>
+  <ul class="nav flex-column">
+    <li
+      class="nav-item d-flex align-items-center"
+      *ngFor="let category of categories | keyvalue"
+    >
+      <a
+        class="nav-link navbar-brand m-0"
+        aria-current="page"
+        [routerLink]="[]"
+        [queryParams]="{ category: category.key }"
+        queryParamsHandling="merge"
+        routerLinkActive="router-link-active"
+      >
+        <span class="mx-3">
+          {{ category.key | uppercase }} ({{ category.value }})
+        </span>
+      </a>
+    </li>
+  </ul>
+  <div class="btn-container mt-5">
+    <button
+      class="change-view btn btn-outline-success btn-lg"
+      (click)="toggleView()"
+    >
+      <i class="bi bi-{{ isViewGrid ? 'list' : 'grid' }}"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<ng-container *ngIf="isGridView; else listView">
+  <div class="card mb-3" style="max-width: 540px">
+    <div class="row g-0">
+      <div
+        class="col-md-4 img-container"
+        [routerLink]="['item', mediaItem.Title]"
+        routerLinkActive="router-link-active"
+        [state]="{ item: mediaItem }"
+      >
+        <img
+          src="{{ mediaItem.Poster }}"
+          alt="{{ mediaItem.Title }}"
+          class="img-fluid"
+          onerror="this.style.display='none'"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="item-title">
+            <input
+              type="text"
+              *ngIf="isEditable"
+              [(ngModel)]="title"
+              (blur)="submitTitle()"
+              class="title-input"
+            />
+            <h3
+              class="card-title"
+              *ngIf="!isEditable"
+              (click)="editTitle($event)"
+            >
+              {{ mediaItem.Title }}
+            </h3>
+          </div>
+          <h5 class="card-title">{{ mediaItem.Type }}</h5>
+          <p class="card-text">
+            <small class="text-muted">{{ mediaItem.Year | dateFormat }}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #listView>
+  <div class="list-grop-item list-view">
+    <span>
+      <img
+        *ngIf="mediaItem.Poster !== 'N/A'"
+        src="{{ mediaItem.Poster }}"
+        alt="{{ mediaItem.Title }}"
+        class="img-fluid"
+        imgFallback
+      />
+    </span>
+    <span> {{ mediaItem.Title }}: </span>
+    <span>
+      {{ mediaItem.Type }}
+    </span>
+    <span class="year"> ({{ mediaItem.Year }}) </span>
+  </div>
+</ng-template>

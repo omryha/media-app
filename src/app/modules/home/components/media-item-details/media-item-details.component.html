@@ -1,0 +1,31 @@
+<div class="container-fluid d-flex flex-column">
+  <h1>
+    {{ mediaItem.Title }}
+  </h1>
+  <div class="img-container">
+    <img
+      src="{{ mediaItem.Poster }}"
+      alt="{{ mediaItem.Title }}"
+      onerror="this.style.display='none'"
+    />
+  </div>
+  <hr />
+  <h3>Details:</h3>
+  <div class="details">
+    <div class="details-item">
+      <span class="key">Title: </span>
+      <span>{{ mediaItem.Title }}</span>
+    </div>
+    <div class="details-item">
+      <span class="key">Type: </span>
+      <span>{{ mediaItem.Type }}</span>
+    </div>
+    <div class="details-item">
+      <span class="key">Year: </span>
+      <span>{{ mediaItem.Year | dateFormat }}</span>
+    </div>
+  </div>
+</div>
+<div class="back-container">
+  <i class="bi bi-arrow-left-circle" (click)="goBack()"></i>
+</div>

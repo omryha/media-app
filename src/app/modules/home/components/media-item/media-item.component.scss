@@ -1,0 +1,27 @@
+.list-view {
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .year {
+    font-style: italic;
+  }
+}
+
+.img-container {
+  border: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.card-title {
+  text-transform: capitalize;
+}
+
+h3.card-title {
+  cursor: pointer;
+}
+
+.title-input {
+  width: 100%;
+}

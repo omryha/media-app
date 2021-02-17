@@ -1,0 +1,51 @@
+<header
+  class="navbar navbar-dark sticky-top bg-dark h-50 flex-md-nowrap px-2 py-3 shadow"
+>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 mx-2" href="#">
+    <h2>StinkTV 📺🦨</h2>
+  </a>
+  <button
+    class="navbar-toggler d-md-none collapsed"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#sidebarMenu"
+    aria-controls="sidebarMenu"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input
+    [ngModel]="searchQuery"
+    (ngModelChange)="updateSearchQuery($event)"
+    class="form-control form-control-dark w-50"
+    type="text"
+    placeholder="What are you looking for?"
+    aria-label="Search"
+  />
+  <span class="navbar-nav px-3">
+    <span class="nav-item text-nowrap">
+      <a class="nav-link" (click)="clearSearch()" *ngIf="searchQuery">Clear</a>
+    </span>
+  </span>
+  <span class="navbar-nav px-3">
+    <span class="nav-item text-nowrap">
+      <a class="nav-link" (click)="refresh()">
+        <i class="bi bi-arrow-clockwise"></i>
+      </a>
+    </span>
+  </span>
+  <span class="navbar-nav px-3">
+    <span class="nav-item text-nowrap">
+      <a
+        class="nav-link"
+        [routerLink]="[]"
+        [queryParams]="{ order: isOrderAsc ? 'asc' : 'desc' }"
+        queryParamsHandling="merge"
+        (click)="toggleOrder()"
+      >
+        <i class="bi bi-sort-alpha-{{ isOrderAsc ? 'up' : 'down' }}"></i>
+      </a>
+    </span>
+  </span>
+</header>

@@ -1,35 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
-import { TimeFormatPipe } from 'src/app/shared/pipes/time-format.pipe';
-
-import { WorkerComponent } from './worker/worker.component';
-import { WorkersListComponent } from './workers-list/workers-list.component';
-import { FlightsComponent } from './flights/flights-table.component';
-import { FlightInfoComponent } from './flight-info/flight-info.component';
 import { HomeComponent } from './pages/home/home.component';
-
-// PrimeNG modules
-import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
-import { SidebarModule } from 'primeng/sidebar';
-
-
+import { MediaContainerComponent } from './components/media-container/media-container.component';
+import { MediaItemComponent } from './components/media-item/media-item.component';
+import { CoreModule } from 'src/app/core/core.module';
+import { MediaItemDetailsComponent } from './components/media-item-details/media-item-details.component';
+import { PipesModule } from 'src/app/core/pipes/pipes.module';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
-    WorkerComponent,
-    WorkersListComponent,
-    FlightsComponent,
-    FlightInfoComponent,
-    TimeFormatPipe
+    MediaContainerComponent,
+    MediaItemComponent,
+    MediaItemDetailsComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    TableModule,
-    ButtonModule,
-    SidebarModule
-  ]
+    CoreModule,
+    FormsModule,
+    PipesModule,
+  ],
+  exports: [MediaItemDetailsComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

@@ -1,0 +1,20 @@
+<div class="container-fluid mt-5">
+  <div class="media-container">
+    <ng-container *ngIf="isGridView; else listView">
+      <div class="container">
+        <div class="row row-cols-2">
+          <div class="col" *ngFor="let mediaItem of mediaData">
+            <app-media-item [mediaItem]="mediaItem"></app-media-item>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #listView>
+      <div class="list-group">
+        <div class="list-group-item" *ngFor="let mediaItem of mediaData">
+          <app-media-item [mediaItem]="mediaItem"></app-media-item>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

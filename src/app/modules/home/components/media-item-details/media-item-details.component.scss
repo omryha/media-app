@@ -1,0 +1,12 @@
+.back-container {
+  padding: 20px;
+  font-size: 5em;
+  i:hover {
+    cursor: pointer;
+    color: lighten($color: #000000, $amount: 50);
+  }
+}
+
+.key {
+  font-weight: bold;
+}
