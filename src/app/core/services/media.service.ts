@@ -21,7 +21,7 @@ export class MediaService {
   }
 
   updateMediaTitle(id: string, newTitle: string) {
-    // *** Patch request absraction
+    // *** Patch request abstraction
     return this.http
       .patch(API_URL, {
         Title: newTitle,
